@@ -51,3 +51,4 @@ Pedestrians: Red -> GREEN (Safe to cross).
 Reset: After the crossing time elapses, the pedestrian light turns Red, and cars get the Green light again.
 
 Cooldown: The system enters a "Safety Lock" mode for 5 seconds, ignoring further button presses to prevent traffic congestion.
+![Semafor](https://github.com/user-attachments/assets/1e4b0b41-6c3b-4c36-8fd4-ee939b646518)
