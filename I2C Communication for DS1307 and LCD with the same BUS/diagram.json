@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Valentin Lazar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 23.4, "left": 326.5, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 179.2,
+      "left": 226.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -72,
+      "left": 114.65,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -63.25,
+      "left": 172.8,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 331.2,
+      "left": 172.25,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 331.2,
+      "left": 105.05,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "rtc1:SDA", "esp:42", "green", [ "h-57.6", "v-0.3" ] ],
+    [ "rtc1:SCL", "esp:41", "green", [ "h-48", "v9.4" ] ],
+    [ "rtc1:5V", "esp:5V", "red", [ "h-57.6", "v-67.6", "h-144", "v240" ] ],
+    [ "rtc1:GND", "esp:GND.2", "black", [ "h-67.2", "v-9.6" ] ],
+    [ "lcd1:GND", "esp:GND.3", "black", [ "h-57.6", "v9.6" ] ],
+    [ "lcd1:SDA", "esp:42", "green", [ "h-19.2", "v-153.4" ] ],
+    [ "lcd1:SCL", "esp:41", "green", [ "h-28.8", "v-153.3" ] ],
+    [ "lcd1:VCC", "esp:3V3.1", "red", [ "h-48", "v67.3", "h-124.8", "v-259.2" ] ],
+    [ "r4:1", "lcd1:SCL", "green", [ "h0", "v-57.6" ] ],
+    [ "r4:2", "esp:3V3.1", "green", [ "h-153.6", "v-337.2" ] ],
+    [ "r3:1", "lcd1:SDA", "green", [ "h0", "v-57.6", "h9.6", "v-19.2" ] ],
+    [ "r3:2", "esp:3V3.1", "green", [ "h0", "v18", "h-249.6", "v-355.2" ] ],
+    [ "r2:2", "rtc1:SDA", "green", [ "h-0.55", "v95.65" ] ],
+    [ "r1:2", "rtc1:SCL", "green", [ "h0", "v104.4", "h96", "v48", "h67.2", "v-48" ] ],
+    [ "r1:1", "esp:5V", "green", [ "h-182.4", "v316.8" ] ],
+    [ "r2:1", "esp:5V", "green", [ "h-0.55", "v-27.95", "h-297.6", "v336" ] ]
+  ],
+  "dependencies": {}
+}

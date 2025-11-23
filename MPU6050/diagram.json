@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "author": "Valentin Lazar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu1",
+      "top": 41.38,
+      "left": 175.72,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -14.4,
+      "left": 143.45,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -4.8,
+      "left": 124.25,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu1:SDA", "esp:42", "green", [ "h-67.2", "v-0.08" ] ],
+    [ "imu1:SCL", "esp:41", "green", [ "h-38.4", "v-0.08" ] ],
+    [ "imu1:VCC", "esp:3V3.1", "red", [ "h-67.2", "v-57.68", "h-134.4", "v48" ] ],
+    [ "imu1:GND", "esp:GND.2", "black", [ "h-76.8", "v-9.68" ] ],
+    [ "r2:2", "imu1:SCL", "green", [ "h0", "v27.6" ] ],
+    [ "r2:1", "esp:3V3.1", "green", [ "h0", "v-19.2", "h-182.4", "v76.8" ] ],
+    [ "r1:2", "imu1:SDA", "green", [ "h0", "v46.8" ] ],
+    [ "r1:1", "esp:3V3.1", "green", [ "h0", "v-38.4", "h-220.8", "v105.6" ] ]
+  ],
+  "dependencies": {}
+}

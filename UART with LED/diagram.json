@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Valentin Lazar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 37.2,
+      "left": 179.4,
+      "rotate": 90,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 61.55,
+      "left": 115.2,
+      "attrs": { "value": "10000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "esp:GND.2", "green", [ "h-28.8", "v-28.4" ] ],
+    [ "led1:A", "r1:2", "green", [ "h0" ] ],
+    [ "r1:1", "esp:1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

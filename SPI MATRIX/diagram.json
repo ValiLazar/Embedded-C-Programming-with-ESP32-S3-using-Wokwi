@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Student GPS",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": -76.98,
+      "left": 225.37,
+      "attrs": { "env": "esp32-s3" }
+    },
+    { "type": "wokwi-neo6m", "id": "gps", "top": -70, "left": 120, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": 10.2,
+      "left": -174.96,
+      "attrs": { "chain": "4" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "gps:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "gps:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "gps:TX", "esp:18", "blue", [ "v0" ] ],
+    [ "gps:RX", "esp:17", "green", [ "v0" ] ],
+    [ "matrix1:V+", "esp:5V", "green", [ "h28.8", "v124.8" ] ],
+    [ "matrix1:GND", "esp:GND.1", "black", [ "h38.4", "v115.2" ] ],
+    [ "matrix1:CLK", "esp:12", "green", [ "h48", "v48" ] ],
+    [ "matrix1:CS", "esp:10", "green", [ "h57.6", "v38.4" ] ],
+    [ "matrix1:DIN", "esp:11", "green", [ "h48", "v57.6", "h9.6" ] ]
+  ],
+  "dependencies": {}
+}
